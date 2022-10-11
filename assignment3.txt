@@ -1,0 +1,394 @@
+***********1********
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace task1
+{
+    class Candidate
+    {
+        public string name;
+        public string cnic;
+        public double cgpa;
+        public string location;
+        
+        public List<Document> documents = new List<Document>();
+
+    }
+    public class Document
+    {
+        public string docName;
+        public string docPath;
+        public string dataType;
+    }
+
+
+
+
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Candidate> candidates = new List<Candidate>();
+            Candidate C;
+            
+            Document D;
+            
+            for (int i = 0; i < 15; i++)
+            {
+                
+                C = new Candidate();
+                
+                Console.WriteLine("************NEXT CANDIDATE {0}************", i + 1);
+                Console.ReadLine();
+                Console.Write("Candidate {0} Name: " , i+1);
+                C.name=Console.ReadLine();
+                Console.Write("Candidate {0} CNIC: ", i + 1);
+                C.cnic = Console.ReadLine();
+                Console.Write("Candidate {0} CGPA: ", i + 1);
+                C.cgpa = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Candidate {0} Location: ", i + 1);
+                C.location = Console.ReadLine();
+
+                for (int j = 0; j < 3; j++)
+                {
+                    D = new Document();
+                    Console.Write("Candidate {0} Document Name: ", j + 1);
+                    D.dataType = Console.ReadLine();
+                    Console.Write("Candidate {0} Document Path: ", j + 1);
+                    D.docPath = Console.ReadLine();
+                    Console.Write("Candidate {0} Document Type: ", j + 1);
+                    D.dataType = Console.ReadLine();
+                    C.documents.Add(D); 
+                }
+    
+                candidates.Add(C);
+            }
+
+            for (int k = 0; k < 15; k++ )
+            {
+
+            }
+            
+        }
+    }
+}
+
+******************2**********
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace task1
+{
+    public class Candidate
+    {
+        public string name;
+        public string cnic;
+        public double cgpa;
+        public string location;
+
+        public List<Document> documents = new List<Document>();
+       
+
+
+    }
+    public class Document
+    {
+        public string docName;
+        public string docPath;
+        public string dataType;
+    }
+
+
+
+
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Candidate> shortlisted = new List<Candidate>();
+            List<Candidate> candidates = new List<Candidate>();
+
+            Candidate C;
+            Document D;
+
+            for (int i = 0; i < 2; i++)
+            {
+
+                C = new Candidate();
+
+                Console.WriteLine("************NEXT CANDIDATE {0}************", i + 1);
+                Console.ReadLine();
+                Console.Write("Candidate {0} Name: ", i + 1);
+                C.name = Console.ReadLine();
+                Console.Write("Candidate {0} CNIC: ", i + 1);
+                C.cnic = Console.ReadLine();
+                Console.Write("Candidate {0} CGPA: ", i + 1);
+                C.cgpa = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Candidate {0} Location: ", i + 1);
+                C.location = Console.ReadLine();
+
+                for (int j = 0; j < 1; j++)
+                {
+                    D = new Document();
+                    Console.Write("Candidate {0} Document Name: ", j + 1);
+                    D.dataType = Console.ReadLine();
+                    Console.Write("Candidate {0} Document Path: ", j + 1);
+                    D.docPath = Console.ReadLine();
+                    Console.Write("Candidate {0} Document Type: ", j + 1);
+                    D.dataType = Console.ReadLine();
+                    C.documents.Add(D);
+                }
+
+                candidates.Add(C);
+            }
+            for (int k = 0; k < 2; k++)
+            {
+                if (candidates[k].cgpa >= 3.0)
+                {
+                    shortlisted.Add(candidates[k]);
+                }
+                
+            }
+
+           
+        }
+    }
+}
+
+********3**************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace task1
+{
+    public class Candidate
+    {
+        public string name;
+        public string cnic;
+        public double cgpa;
+        public string location;
+        public int projectMarks;
+
+        public List<Document> documents = new List<Document>();
+        public List<Project> projectmarks = new List<Project>();
+
+
+    }
+    public class Project
+    {
+        public int project1Marks;
+        public int projects2Marks;
+    }
+
+    public class Document
+    {
+        public string docName;
+        public string docPath;
+        public string dataType;
+    }
+
+
+
+
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Candidate> shortlisted = new List<Candidate>();
+            List<Candidate> candidates = new List<Candidate>();
+            List<Candidate> projectmarks = new List<Candidate>();
+            Candidate C;
+            Document D;
+            Project P;
+
+            for (int i = 0; i < 2; i++)
+            {
+
+                C = new Candidate();
+
+                Console.WriteLine("************NEXT CANDIDATE {0}************", i + 1);
+                Console.ReadLine();
+                Console.Write("Candidate {0} Name: ", i + 1);
+                C.name = Console.ReadLine();
+                Console.Write("Candidate {0} CNIC: ", i + 1);
+                C.cnic = Console.ReadLine();
+                Console.Write("Candidate {0} CGPA: ", i + 1);
+                C.cgpa = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Candidate {0} Location: ", i + 1);
+                C.location = Console.ReadLine();
+
+                for (int j = 0; j < 1; j++)
+                {
+                    D = new Document();
+                    Console.Write("Candidate {0} Document Name: ", j + 1);
+                    D.dataType = Console.ReadLine();
+                    Console.Write("Candidate {0} Document Path: ", j + 1);
+                    D.docPath = Console.ReadLine();
+                    Console.Write("Candidate {0} Document Type: ", j + 1);
+                    D.dataType = Console.ReadLine();
+                    C.documents.Add(D);
+                }
+               
+                P = new Project();
+                Console.Write("Marks in Project-1 : ");
+                P.project1Marks = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Marks in Project-2 : ");
+                P.projects2Marks = Convert.ToInt32(Console.ReadLine());
+                C.projectmarks.Add(P);
+            
+
+                candidates.Add(C);
+            }
+            for (int k = 0; k < 2; k++)
+            {
+                if (candidates[k].cgpa >= 3.0)
+                {
+                    shortlisted.Add(candidates[k]);
+                }
+
+            }
+
+
+        }
+    }
+}
+
+*************4**********
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace task1
+{
+    public class Candidate
+    {
+        public string name;
+        public string cnic;
+        public double cgpa;
+        public string location;
+        //public int projectMarks;
+       
+
+        public List<Document> documents = new List<Document>();
+        public List<Project> projectmarks = new List<Project>();
+
+
+    }
+    public class Project
+    {
+        public int project1Marks;
+        public int projects2Marks;
+
+       
+    }
+
+    public class Document
+    {
+        public string docName;
+        public string docPath;
+        public string dataType;
+    }
+
+
+
+
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Candidate> shortlisted = new List<Candidate>();
+            List<Candidate> candidates = new List<Candidate>();
+            List<Candidate> topperCands = new List<Candidate>();
+            Candidate C;
+            Document D;
+            Project P;
+           
+
+            for (int i = 0; i < 2; i++)
+            {
+
+                C = new Candidate();
+
+                Console.WriteLine("************NEXT CANDIDATE {0}************", i + 1);
+                Console.ReadLine();
+                Console.Write("Candidate {0} Name: ", i + 1);
+                C.name = Console.ReadLine();
+                Console.Write("Candidate {0} CNIC: ", i + 1);
+                C.cnic = Console.ReadLine();
+                Console.Write("Candidate {0} CGPA: ", i + 1);
+                C.cgpa = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Candidate {0} Location: ", i + 1);
+                C.location = Console.ReadLine();
+
+                for (int j = 0; j < 1; j++)
+                {
+                    D = new Document();
+                    Console.Write("Candidate {0} Document Name: ", j + 1);
+                    D.dataType = Console.ReadLine();
+                    Console.Write("Candidate {0} Document Path: ", j + 1);
+                    D.docPath = Console.ReadLine();
+                    Console.Write("Candidate {0} Document Type: ", j + 1);
+                    D.dataType = Console.ReadLine();
+                    C.documents.Add(D);
+                }
+
+                candidates.Add(C);
+            }
+            for (int k = 0; k < 2; k++)
+            {
+                if (candidates[k].cgpa >= 3.0)
+                {
+                    shortlisted.Add(candidates[k]);
+                }
+
+            }
+
+            for (int i = 0; i < shortlisted.Count; i++)
+            {
+                P = new Project();
+                Console.Write("Marks in Project-1 : ");
+                P.project1Marks = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Marks in Project-2 : ");
+                P.projects2Marks = Convert.ToInt32(Console.ReadLine());
+                shortlisted[i].projectmarks.Add(P);
+            }
+
+            double percentage;
+            for (int i = 0; i < 2; i++)
+            {
+                percentage = ((shortlisted[i].projectmarks[i].project1Marks + shortlisted[i].projectmarks[i].projects2Marks) / 2) * 100;
+                if (percentage >= 90)
+                {
+                    topperCands.Add(shortlisted[i]);
+                }
+
+            }
+
+
+        }
+    }
+}
