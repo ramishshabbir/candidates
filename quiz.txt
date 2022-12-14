@@ -1,0 +1,104 @@
+// you can also use imports, for example:
+import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public String solution(String S, int K) {
+        String[] Week= {"Mon","Tue","Wed","Thu","Fri","Sat","Sun"};
+        Scanner sc = new Scanner(System.in);  
+		    System.out.println("Enter String: ");
+            String S = sc.nextLine();
+            System.out.println("Enter integer: ");
+            int K = sc.nextLine();
+            int i = Week.indexOf(S);
+            int K = K+i;
+            Switch (K){
+                case 1:
+                System.out.println("Monday");
+                break;
+                Default:
+                System.out.println("Not Found");
+            }
+
+        
+    }
+}
+................................
+// you can also use imports, for example:
+import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public String solution(String name, String surname, int age) {
+    String name = "Ramish";
+    String  surname = "Qureshi";
+    int age = 9;
+    String  result = "";
+    String[][] Name={{name},{surname}};   
+    for(int i=0;i<2;i++){
+        if (i==2){
+            break;
+        }
+        for(int j=0; j<2;j++){
+            result = Name[i][i]+Name[i][j]+Name[i][j]+Name[i][j];
+             System.out.print(result);
+        }
+    
+       System.out.print(result+age);
+    }
+
+
+
+    }
+}
+.................
+// you can also use imports, for example:
+// import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public int solution(String S) {
+       Scanner sc = new Scanner(System.in);  
+		    System.out.println("Enter String: ");
+
+		    String userName = sc.nextLine();  
+            userName.toLowerCase();           // convert it to lower case
+		    int i=0, k=0, j=0;
+		    int len=userName.length();
+		    char[] ch = new char[len];
+		    int[] cnt = new int[len];
+		    for(i=0; i<len; i++) {
+		    	ch[i]=userName.charAt(i);
+		    }
+		    for(i=0; i<len; i++) {
+		    	for(k=0; k<len; k++) {
+		    		if(ch[i]==ch[k]) {    				
+		    				cnt[i]++;		
+		    		}
+		    	}
+		    }
+		    for(i=0; i<len; i++) {
+		    	for(k=0; k<i; k++) {
+		    		if(ch[i]==ch[k]) {
+		    			break;
+		    		}   		
+		    	}
+		    	if(k==i) {
+		    		System.out.println("Letter: "+ch[i]+", Occurrence: "+cnt[i]);
+		    	}
+		    } 
+		  }
+		}
+
+        //Letters have been counted, now deleted odd one's
+		userName.indexOf()
+    
+
+    }
+}

@@ -1,0 +1,353 @@
+import java.util.Scanner;  // Import the Scanner class
+class Abbreviate {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("Enter username: ");
+    String userName = sc.nextLine();  // Read user input
+    int i=0, j=0, k=0, cn =0;
+    int len = userName.length();
+    char[] ch = new char[len];
+    int[] cnt = new int[len];
+    char[] arr = new char[len];
+    for(i=0; i<len; i++) {
+    	ch[i]=userName.charAt(i);
+    }
+    for(i=0; i<len; i++) {
+    	if(ch[i]==' ') {
+    		cnt[i]++;
+    		cn = cn + cnt[i];
+    	}
+    }
+    if(cn==0) {
+    	System.out.println("Abbreviated Username is: " + userName);  // Output user input
+    }
+    else if(cn==1){
+    	k=2;
+    	arr[0]=ch[0];
+    	arr[1]='.';
+    	
+    	for(i=0; i<len; i++) {
+    		if(cnt[i]==1) {
+    			for(j=i;j<len;j++) {
+    				arr[k]=ch[j];
+    				k++;
+    			}
+    		}
+    	}
+    	
+    	System.out.println("Abbreviated Username is: ");  // Output user input
+    	for(i=0; i<len; i++) {
+    		System.out.print(arr[i]);
+    	}
+    }
+    else if(cn==2){
+    	k=4;
+    	arr[0]=ch[0];
+    	arr[1]='.';
+    	for(i=0; i<len; i++) {
+    		if(cnt[i]==1) {
+    			arr[2]=ch[i+1];
+    	    	arr[3]='.';
+    	    	break;
+    		}	
+    	}
+    	for(i=i+1; i<len; i++) {
+    		if(cnt[i]==1) {
+    			for(j=i+1;j<len;j++)
+    			{
+    				arr[k]=ch[j];
+    				k++;
+    			}
+    		}
+    	}
+    	System.out.println("Abbreviated Username is: ");  // Output user input
+    	for(i=0; i<len; i++) {
+    		System.out.print(arr[i]);
+    	}
+    }
+  }
+}
+.........................................................................................
+import java.util.Scanner;  // Import the Scanner class
+class Armstrong {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("Enter Number: ");
+    String arr = sc.nextLine();  // Read user input
+    int chk = Integer.parseInt(arr);
+    int i=0, b=0, c=0;
+    int len = arr.length();
+    for(i=0;i<len;i++) {
+    	c = Character.getNumericValue(arr.charAt(i));
+    	b = b + (int)Math.pow(c,len);   	
+    }
+    if(b==chk) {
+    	System.out.print("Number "+chk+" is Armstrong.");
+    }
+    else if(b!=chk) {
+    	System.out.print("Number "+chk+" is not Armstrong.");
+    }
+  }
+}
+..............................................................................
+import java.util.Scanner;  // Import the Scanner class
+class Duplicate {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("Enter String: ");
+    String userName = sc.nextLine();  // Read user input
+    int i=0, k=0, j=0;
+    int len=userName.length();
+    char[] ch = new char[len];
+    char[] chnew = new char[len];
+    for(i=0; i<len; i++) {
+    	ch[i]=userName.charAt(i);
+    }
+    for(i=0; i<len; i++) {
+    	for(k=0; k<i; k++) {
+    		if(ch[i]==ch[k]) {
+    			break;
+    		}
+    	}
+    	if(k==i) {
+    		chnew[j++]=ch[i];
+    	}
+    }
+    for(i=0; i<len; i++) {
+    	System.out.print(chnew[i]);  // Output user input
+    }
+  }
+}
+............................................................................
+import java.util.Scanner;  // Import the Scanner class
+
+class FirstNonRep {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("Enter String: ");
+
+    String userName = sc.nextLine();  // Read user input
+    int i=0, k=0;
+    int len=userName.length();
+    char[] ch = new char[len];
+    int[] cnt = new int[len];
+    for(i=0; i<len; i++) {
+    	ch[i]=userName.charAt(i);
+    }
+    for(i=0; i<len; i++) {
+    	for(k=0; k<len; k++) {
+    		if(ch[i]==ch[k]) {    				
+    				cnt[i]++;		
+    		}
+    	}
+    	if(cnt[i]==1) {
+    		System.out.println("First Non-Repeating Letter is: "+ch[i]);
+    		break;
+    	}
+    }
+  }
+}
+.........................................
+import java.util.Scanner;  // Import the Scanner class
+
+class Occurrence {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("Enter String: ");
+
+    String userName = sc.nextLine();  // Read user input
+    int i=0, k=0, j=0;
+    int len=userName.length();
+    char[] ch = new char[len];
+    int[] cnt = new int[len];
+    for(i=0; i<len; i++) {
+    	ch[i]=userName.charAt(i);
+    }
+    for(i=0; i<len; i++) {
+    	for(k=0; k<len; k++) {
+    		if(ch[i]==ch[k]) {    				
+    				cnt[i]++;		
+    		}
+    	}
+    }
+    for(i=0; i<len; i++) {
+    	for(k=0; k<i; k++) {
+    		if(ch[i]==ch[k]) {
+    			break;
+    		}   		
+    	}
+    	if(k==i) {
+    		System.out.println("Letter: "+ch[i]+", Occurrence: "+cnt[i]);
+    	}
+    } 
+  }
+}
+................................................................
+class BiCycle{
+    String define_me(){
+        return "a vehicle with pedals.";
+    }
+}
+
+class MotorCycle extends BiCycle{
+    String define_me(){
+        return "a cycle with an engine.";
+    }
+    
+    MotorCycle(){
+        System.out.println("Hello I am a motorcycle, I am "+ define_me());
+
+        BiCycle myB = new BiCycle(); 
+        String temp = myB.define_me();
+        System.out.println("My ancestor is a cycle who is "+ temp );
+    }
+    
+}
+class Problem{
+    public static void main(String []args){
+        MotorCycle M=new MotorCycle();
+}
+}
+...................................................
+import java.util.Scanner;  // Import the Scanner class
+class StringTokenizer {
+	
+	 Scanner sc = new Scanner(System.in);  // Create a Scanner object
+	 private String inp =sc.nextLine();
+	 
+	 public String input() { 	//get input function
+		return inp;
+	 }
+	
+	 public int countToken( String inp ) { 	//counter for tokens		
+		int i=0, cnt=0;
+		int len = inp.length();
+		char[] ch = new char[len];
+		for(i=0;i<len;i++) {
+			ch[i]=inp.charAt(i);
+			if(ch[i]=='@' || ch[i]=='#' || ch[i]==' ' || ch[i]==',' || ch[i]=='*') {
+				cnt++;
+			}
+		}
+		return cnt;
+	}
+	
+	//main
+  public static void main(String[] args) {
+	  System.out.println("Enter String: ");
+	  
+	  StringTokenizer func = new StringTokenizer(); // declared object
+	  String arr = func.input();	// got input using getter
+
+    int chk = func.countToken(arr);
+    System.out.println("Count is: "+chk);
+    
+  }
+}
+................................................
+class animal { 
+ private String Name = "Animal";
+ private int Age = 3;
+
+ void set_Value(String str, int num){
+	 this.Name=str;
+	 this.Age=num;
+ }
+ void get_Value() { 
+	 System.out.println("My Name is: "+Name);
+	 System.out.println("My Age is: "+Age);
+}
+}
+class zebra extends animal {
+	zebra(){
+	animal myZ = new animal();
+	myZ.set_Value("Zebra", 13);
+	myZ.get_Value();
+	System.out.println("I am from Lahore Zoo.");
+	}
+}
+class dolphin extends animal {
+	dolphin(){
+		animal myD = new animal();
+		myD.set_Value("Dolphin", 7);
+		myD.get_Value();
+		System.out.println("I am from Karachi Sea.");
+		}
+}
+class animals{
+public static void main(String args[]) 
+{   
+     zebra myZebra = new zebra();
+     dolphin myDolphin = new dolphin();
+
+}
+}
+...............................................................
+import java.util.Scanner;
+
+class findMiss{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);  // Create a Scanner object
+	    System.out.println("Enter (1-100) Number You Want to Miss: ");
+	    int n = sc.nextInt();
+	    int[] arr = new int[100];
+	    int i=0, result =0;
+	    for(i=0;i<100;i++) {
+		    if(n==i+1) {
+		    	arr[i]=0;
+		    }
+		    else {
+		    	arr[i]=i+1;
+		    }
+	    }
+	    for(i=0;i<100;i++) {
+		    if(arr[i]!=i+1) {
+		    	result=i;
+		    }
+	    }
+	    
+		System.out.println("Number "+(int)(result+1)+" is Missing at Index is: "+result);
+	}
+}
+........................................
+import java.util.Scanner;  // Import the Scanner class
+class palindrome {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("Enter String: ");
+    String userName = sc.nextLine();  // Read user input
+    int i=0, k=0, j=0, cn=0, cnt=0;
+    int len=userName.length();
+    char[] ch = new char[len];
+    char[] chnew = new char[len];
+    for(i=0; i<len; i++) {
+    	ch[i]=userName.charAt(i);
+    }
+    for(i=0; i<len-1; i++) {
+    	if(ch[i]==ch[i+1]) {
+    		chnew[cn++]=ch[i];
+    		cnt=0;
+    		for(k=i-1; k>=0; k--) {
+    			System.out.println(k+" :k: "+ch[k]);
+    			for(j=i+2; j<len; j++) {
+    				System.out.println(j+" :j: "+ch[j]);
+    				if(ch[k]==ch[j]) {
+    					chnew[cn++]=ch[k];
+    					cnt++;
+    				}
+    				else {
+    					break;
+    				}
+    				System.out.println();
+    			}
+    		if(cnt==0) {break;}
+    		}
+    		chnew[cn++]=' ';
+    	}
+    }
+    for(i=0; i<len; i++) {
+    	System.out.print(chnew[i]);  // Output user input
+    }
+  }
+}
+
