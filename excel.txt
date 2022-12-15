@@ -1,0 +1,145 @@
+package project;
+
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.time.Duration;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class DemoClass {
+	
+	public String BaseUrl = "https://galaxy.pk/";
+	public WebDriver driver;
+	public WebDriverWait wait;
+	public Actions actions;
+	
+	
+	@BeforeTest
+	public void Main() {
+		driver = new ChromeDriver();		
+		driver.get(BaseUrl);
+		driver.manage().window().maximize();
+		
+		//Create objects
+		actions = new Actions(driver);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	}
+	@AfterTest
+	public void CloseUrl() {
+		//driver.close();
+	}
+	
+	public  WebElement WaitXpath(String xpath) {
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		return element;
+		}
+	
+	public void ActionsClick(WebElement element) {
+		actions.click(element).perform();		
+	}
+	
+	
+	
+	
+	@Test(priority=0)
+	public void HomePage() throws InterruptedException {
+		//Hover on Products
+		WebElement Products = WaitXpath("//ul[@id='menu-all-departments-1']//parent::div");
+		actions.moveToElement(Products).perform();
+		
+		//Hover on Laptops and then click 
+		WebElement Laptops = WaitXpath("//ul[@id='menu-all-departments-1']//child::li[@id='menu-item-4761']");
+		actions.moveToElement(Laptops).perform();
+		Thread.sleep(3000);
+		ActionsClick(Laptops);		
+	}
+	
+	@Test(priority=1)
+	public void Laptops() throws Exception  {
+		Select drpCountry = new Select(WaitXpath("//select[@name='ppp']"));
+		drpCountry.selectByVisibleText("Show All");
+		Thread.sleep(2000);
+		
+				
+		XSSFWorkbook workbook1=new XSSFWorkbook();
+		XSSFSheet sheet1=workbook1.createSheet("Compu0000ters Details");
+		
+		
+		
+		for (int i=1; i<2; i++)
+		{
+			
+			File fil=new File("C:\\Users\\Ramish\\eclipse-workspace\\HomeTake\\Home_Task.xlsx");
+			FileOutputStream fos=new FileOutputStream(fil);
+			workbook1.write(fos);
+			
+			
+		
+		    WebElement  description = WaitXpath("(//div[@class='product-loop-footer product-item__footer']//child::span[@class='woocommerce-Price-amount amount'])[i]");
+		    WebElement  name = WaitXpath("(//div[@class='product-loop-body product-item__body']//child::h2[@class='woocommerce-loop-product__title'])[i]");
+		    WebElement  price = WaitXpath("(//div[@class='product-loop-footer product-item__footer']//child::span[@class='woocommerce-Price-amount amount'])[i]");
+		    		
+		    
+			String desc=description.getText();
+			String namee= name.getText();
+			String Price= price.getText();
+			
+			
+	
+			Robot robot = new Robot();
+			
+			
+			
+			
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(2000);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			
+		       
+		
+			
+
+			driver.navigate().back();
+			Thread.sleep(3000);	
+}
+	
+	}
+	
+/*
+public static void  ExcelFn(String detail,String Price,String desc,int i, int j) {
+	System.out.println(detail+Price+desc+i+j);	
+}
+
+	
+		//	WebElement  image = WaitXpath("(//div[@class='product-thumbnail product-item__thumbnail'])["+i+"]");
+		  //  image.click();//xpath to get each picture
+			
+			//Actions right_click=new Actions(driver);
+			//right_click.contextClick(image).build().perform();
+		/*	for(int n=0; n<2;n++)
+			{
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
+			
+			} */
+
+
+}
